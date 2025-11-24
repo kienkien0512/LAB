@@ -45,7 +45,7 @@ function Layout() {
 
             {/* MENU */}
             <div className="hidden md:flex space-x-6">
-              <Link className="hover:text-gray-300" to="/">
+              <Link className="hover:text-gray-300" to="/list">
                 Danh sách
               </Link>
               <Link className="hover:text-gray-300" to="/add">
