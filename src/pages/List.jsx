@@ -9,6 +9,20 @@ function List() {
     .then(data => setTours(data));
   },[]);
 
+  const handleDelete = (id) => {
+        if (!window.confirm("Bạn có chắc muốn xóa tour này?")) return;
+    fetch(`http://localhost:3000/tours/${id}`, {
+      method: "DELETE",
+    })
+    .then(() => {
+      setTours(tours.filter(tour => tour.id !== id));
+      alert("Xóa tour thành công!");
+    })
+    .catch(error => {
+      console.error("Error deleting tour:", error);
+    });
+  }
+
   return (
     <div className="p-6">
       <h1 className="text-2xl font-semibold mb-6">Danh sách</h1>
@@ -31,7 +45,16 @@ function List() {
                 Gia
               </th>
               <th className="px-4 py-2 border border-gray-300 text-left">
+                Hinh anh
+              </th>
+              <th className="px-4 py-2 border border-gray-300 text-left">
+                Mo ta
+              </th>
+              <th className="px-4 py-2 border border-gray-300 text-left">
                 Con lai
+              </th>
+              <th className="px-4 py-2 border border-gray-300 text-left">
+                Xoa
               </th>
             </tr>
           </thead>
@@ -44,7 +67,10 @@ function List() {
               <td className="px-4 py-2 border border-gray-300">{tour.destination}</td>
               <td className="px-4 py-2 border border-gray-300">{tour.duration}</td>
               <td className="px-4 py-2 border border-gray-300">{tour.price.toLocaleString()}</td>
+              <td className="px-4 py-2 border border-gray-300">{tour.image && (<img src={tour.image} alt={tour.name}/>)}</td>
+              <td className="px-4 py-2 border border-gray-300">{tour.description}</td>
               <td className="px-4 py-2 border border-gray-300">{tour.available}</td>
+              <button onClick={() => handleDelete(tour.id)}>Xoa</button>
             </tr>
             ))}
           </tbody>
