@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import List from "./pages/List";
 import Add from "./pages/Add";
+import Edit from "./pages/Edit";
 
 function App() {
   const [open, setOpen] = useState(false);
@@ -101,6 +102,7 @@ function App() {
         <Routes>
           <Route path="/list" element={<List/>}/>
           <Route path="/add" element={<Add/>}/>
+        <Route path="/edit/:id" element={<Edit/>} />
         </Routes>
 
       </div>
