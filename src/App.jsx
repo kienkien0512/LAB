@@ -4,7 +4,9 @@ import { Route, Routes } from "react-router-dom";
 import List from "./pages/List";
 import Add from "./pages/Add";
 import Edit from "./pages/Edit";
-
+import RegisterPage from "./pages/RegisterPage";
+import LoginPage from "./pages/LoginPage";
+import AdminLayout from "./layout/AdminLayout";
 function App() {
   const [open, setOpen] = useState(false);
 
@@ -61,10 +63,10 @@ function App() {
 
           {/* Right menu desktop */}
           <div className="hidden md:flex items-center space-x-6">
-            <a href="#" className="hover:text-gray-200">
+            <a href="/login" className="hover:text-gray-200">
               Đăng nhập
             </a>
-            <a href="#" className="hover:text-gray-200">
+            <a href="/register" className="hover:text-gray-200">
               Đăng ký
             </a>
           </div>
@@ -83,10 +85,10 @@ function App() {
               <a href="/add" className="block hover:text-gray-200">
                 Thêm mới
               </a>
-              <a href="#" className="block hover:text-gray-200">
+              <a href="/login" className="block hover:text-gray-200">
                 Đăng nhập
               </a>
-              <a href="#" className="block hover:text-gray-200">
+              <a href="/register" className="block hover:text-gray-200">
                 Đăng ký
               </a>
             </div>
@@ -98,12 +100,17 @@ function App() {
       <div className="max-w-6xl mx-auto mt-10 px-4 text-center">
         <h1 className="text-4xl font-bold mb-4">Chào mừng đến với WEB501</h1>
         <p className="text-lg text-gray-600">Ứng dụng quản lý dữ liệu</p>
+<Routes>
+  <Route element={<AdminLayout />}>
+    <Route path="/list" element={<List />} />
+    <Route path="/add" element={<Add />} />
+    <Route path="/edit/:id" element={<Edit />} />
+  </Route>
 
-        <Routes>
-          <Route path="/list" element={<List/>}/>
-          <Route path="/add" element={<Add/>}/>
-        <Route path="/edit/:id" element={<Edit/>} />
-        </Routes>
+  <Route path="/login" element={<LoginPage />} />
+  <Route path="/register" element={<RegisterPage />} />
+</Routes>
+
 
       </div>
 

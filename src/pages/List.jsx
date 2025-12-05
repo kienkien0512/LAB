@@ -9,7 +9,7 @@ function List() {
     fetch("http://localhost:3000/tours")
       .then(res => res.json())
       .then(data => setTours(data))
-      .catch(err => console.error("Error fetching tours:", err));
+      .catch(err => console.error("Error", err));
   }, []);
 
   const handleDelete = (id) => {
@@ -22,7 +22,7 @@ function List() {
         setTours(prevTours => prevTours.filter(tour => tour.id !== id));
         alert("Xóa tour thành công!");
       })
-      .catch(error => console.error("Error deleting tour:", error));
+      .catch(error => console.error("Error", error));
   };
 
   const handleEdit = (id) => {

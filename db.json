@@ -31,5 +31,37 @@
       "description": "Thành phố ngàn hoa với khí hậu mát mẻ quanh năm",
       "available": 10
     }
+  ],
+  "users": [
+    {
+      "username": "kienkien0512",
+      "password": "Kien123456.",
+      "id": 1
+    },
+    {
+      "username": "kienkien0512",
+      "password": "Kien123456",
+      "id": 2
+    },
+    {
+      "username": "kien123",
+      "password": "kien123",
+      "id": 3
+    },
+    {
+      "username": "kienkien",
+      "password": "kien123456",
+      "id": 4
+    },
+    {
+      "username": "kien112",
+      "password": "kien123456",
+      "id": 5
+    },
+    {
+      "email": "kienlttph511115@gmail.com",
+      "password": "$2a$10$fvyqBX7qKTum/3aeJ350o.co2rAhvX2snyO4U5GhQgtTZ21FBRm7C",
+      "id": 6
+    }
   ]
 }
