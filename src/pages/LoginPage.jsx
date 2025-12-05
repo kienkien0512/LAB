@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
@@ -17,7 +18,6 @@ function LoginPage() {
     try {
       const res = await axios.post("http://localhost:3000/login", user);
 
-      // Lưu token + user
       localStorage.setItem("token", res.data.accessToken);
       localStorage.setItem("user", JSON.stringify(res.data.user));
 
